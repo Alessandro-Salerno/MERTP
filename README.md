@@ -152,7 +152,7 @@ The recommended way to implement MERTP in an application is to use the software 
         System.out.println(reply.getHeader("Content"));
     }
 } catch (Exception e) {
-  throw new RuntimeException(e);
+    throw new RuntimeException(e);
 }
 ```
 
