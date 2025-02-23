@@ -193,6 +193,8 @@ The recommended way to implement MERTP in an application is to use the software 
          MERTPServerAuthenticationException e) {
     System.out.println(e.getMessage());
     System.exit(-1);
+} catch (Exception e) {
+    throw new RuntimeException(e);
 }
 ```
 
