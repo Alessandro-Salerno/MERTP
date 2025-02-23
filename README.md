@@ -151,6 +151,7 @@ The recommended way to implement MERTP in an application is to use the software 
     if (reply.isOfType(LibMERTP.MessageTypes.ANSWER)) {
         System.out.println(reply.getHeader("Content"));
     }
+}
 ```
 
 ### Client example
@@ -194,6 +195,7 @@ The recommended way to implement MERTP in an application is to use the software 
             }
         }
     }
+}
 ```
 
 ### Installing LibMERTP with Maven
