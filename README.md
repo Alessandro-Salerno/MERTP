@@ -173,10 +173,6 @@ The recommended way to implement MERTP in an application is to use the software 
     // Use LibMERTP to read the server's handshake reply
     MERTPServerHandshake server = LibMERTP.readServerHandshake(is, clientKeys);
 
-    try {
-        server = 
-    } 
-
     // All communication should now go through the MERTPChannel object relatedd to this connection
     final MERTPChannel channel = new MERTPChannel(serverKeys, clientKey, aes, is, os);
 
