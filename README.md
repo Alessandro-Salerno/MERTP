@@ -151,6 +151,8 @@ The recommended way to implement MERTP in an application is to use the software 
     if (reply.isOfType(LibMERTP.MessageTypes.ANSWER)) {
         System.out.println(reply.getHeader("Content"));
     }
+} catch (Exception e) {
+  throw new RuntimeException(e);
 }
 ```
 
@@ -169,15 +171,11 @@ The recommended way to implement MERTP in an application is to use the software 
     LibMERTP.writeClientHandshake(os, clientKeys.getPublic())
 
     // Use LibMERTP to read the server's handshake reply
-    MERTPServerHandshake server = null;
+    MERTPServerHandshake server = LibMERTP.readServerHandshake(is, clientKeys);
 
     try {
-        server = LibMERTP.readServerHandshake(is, clientKeys);
-    } catch (MERTPVersionMismatchException | MERTPMalformedHandshakeException |
-             MERTPServerAuthenticationException e) {
-        System.out.println(e.getMessage());
-        System.exit(-1);
-    }
+        server = 
+    } 
 
     // All communication should now go through the MERTPChannel object relatedd to this connection
     final MERTPChannel channel = new MERTPChannel(serverKeys, clientKey, aes, is, os);
@@ -195,6 +193,10 @@ The recommended way to implement MERTP in an application is to use the software 
             }
         }
     }
+} catch (MERTPVersionMismatchException | MERTPMalformedHandshakeException |
+         MERTPServerAuthenticationException e) {
+    System.out.println(e.getMessage());
+    System.exit(-1);
 }
 ```
 
