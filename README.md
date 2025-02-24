@@ -112,6 +112,8 @@ This message type has no standard payload.
 | Header | Type | Possible values | Description |
 | - | - | - | - |
 | `Content` | Text | | The content read by the client |
+| `Terminal-Rows` | Integer | | The number of rows in the client's window |
+| `Terminal-Columns` | Integer | | The number of columns in the client's window |
 
 This message type has no standard payload.
 
